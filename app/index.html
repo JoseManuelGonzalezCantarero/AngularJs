@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body ng-app="app">
@@ -39,7 +40,7 @@
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label">Nombre</label>
                                     <div class="col-lg-3">
-                                        <input ng-model="vm.worker.name" type="text" class="form-control">
+                                        <input ng-model="vm.worker.name" type="text" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -74,7 +75,7 @@
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label">Salario</label>
                                     <div class="col-lg-3">
-                                        <input ng-model="vm.worker.salary" type="text" class="form-control">
+                                        <input ng-model="vm.worker.salary" type="text" class="form-control" max="1500">
                                     </div>
                                 </div>
                                 <div class="form-group">
