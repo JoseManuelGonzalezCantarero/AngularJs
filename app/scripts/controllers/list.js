@@ -10,23 +10,18 @@
         vm.currentPage = 1;
         vm.workers = [];
         
-        workers.list(function (err, workersList) {
-            if(err)
-            {
-                console.log(err);
-            }
-            else
-            {
-                vm.workers = workersList;
-            }
-        });
-        vm.pageChanged = function(){
-            console.log('cambio de página...');
-        };
-
-        vm.getWorkers = function () {
-            return vm.workers.slice((vm.currentPage - 1) * 10, ((vm.currentPage - 1) * 10) + 10);
+        function listWorkers() {
+            workers.list(vm.currentPage, function (err, data) {
+                if(err)
+                {
+                    console.log(err);
+                }
+                vm.workers = data.workers;
+                vm.totalWorkers = data.totalWorkers;
+            });
         }
+        vm.pageChanged = listWorkers;
+        listWorkers();
     }
 
     controller.$inject = ['workers'];

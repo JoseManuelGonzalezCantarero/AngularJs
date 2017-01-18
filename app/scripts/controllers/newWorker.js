@@ -5,7 +5,7 @@
         .module('app')
         .controller('NewWorkerController', controller);
 
-    function controller() {
+    function controller(workers) {
         var vm = this;
 
         vm.worker = {
@@ -26,8 +26,16 @@
             }
             else
             {
-                console.log('enviando al backend...');
-                console.log(JSON.stringify(vm.worker));
+                workers.add(vm.worker, function (err, response) {
+                    if(err)
+                    {
+                        console.log(err);
+                    }
+                    else
+                    {
+                        console.log('Trabajador añadido correctamente');
+                    }
+                });
             }
 
         };
@@ -46,4 +54,6 @@
             reader.readAsDataURL(element.files[0]);
         }
     }
+
+    controller.$inject = ['workers'];
 }());
