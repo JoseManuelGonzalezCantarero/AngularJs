@@ -4,7 +4,8 @@
         .module('app', [
             'ui.bootstrap',
             'ngMessages',
-            'ui.router'
+            'ui.router',
+            'angular-loading-bar'
         ])
         .config(configure);
 
@@ -12,15 +13,28 @@
         $stateProvider
             .state('list', {
                 url: '/list',
-                templateUrl: 'templates/list.html'
+                templateUrl: 'templates/list.html',
+                controller: 'ListController as vm',
+                resolve: {
+                    initialListResponse: function (workers) {
+                        return workers.list(1);
+                    }
+                }
             })
             .state('addWorker', {
                 url: '/addworker',
-                templateUrl: 'templates/new-worker.html'
+                templateUrl: 'templates/new-worker.html',
+                controller: 'NewWorkerController as vm'
             })
             .state('viewWorker', {
                 url: '/viewworker/:id',
-                templateUrl: 'templates/view-worker.html'
+                templateUrl: 'templates/view-worker.html',
+                controller: 'ViewWorkerController as vm',
+                resolve: {
+                    workerDataResponse: function (workers, $stateParams) {
+                        return workers.get($stateParams.id)
+                    }
+                }
             });
 
         $urlRouterProvider.otherwise('/list')

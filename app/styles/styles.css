@@ -1,0 +1,13 @@
+#loading-bar .bar {
+    background-color: red;
+    margin-top: 60px;
+}
+
+#loading-bar-spinner{
+    top:80px;
+}
+
+#loading-bar-spinner .spinner-icon{
+    border-top-color: red;
+    border-left-color: red;
+}

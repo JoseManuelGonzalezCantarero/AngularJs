@@ -5,17 +5,10 @@
         .module('app')
         .controller('ViewWorkerController', controller);
 
-    function controller(workers, $stateParams) {
+    function controller(workerDataResponse) {
         var vm = this;
 
-        workers.get($stateParams.id, function (err, response) {
-            if(err)
-            {
-                console.log(err);
-            }
-            vm.worker = response;
-        });
-
+        vm.worker = workerDataResponse.data;
     }
 
     controller.$inject = ['workers', '$stateParams'];
