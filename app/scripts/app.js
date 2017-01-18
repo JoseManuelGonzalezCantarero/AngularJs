@@ -2,6 +2,7 @@
     'use strict';
     window.angular
         .module('app', [
-            'ui.bootstrap'
+            'ui.bootstrap',
+            'ngMessages'
         ]);
 }());

@@ -17,11 +17,20 @@
             salary: 0,
             photo: '',
             observations: ''
-        }
+        };
 
         vm.send = function () {
-            console.log(JSON.stringify(vm.worker));
-        }
+            if(vm.newWorkerForm.$invalid)
+            {
+                console.log('No hacemos nada...');
+            }
+            else
+            {
+                console.log('enviando al backend...');
+                console.log(JSON.stringify(vm.worker));
+            }
+
+        };
 
         vm.fileChange = function (element) {
             var reader;
