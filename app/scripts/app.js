@@ -7,6 +7,9 @@
             'ui.router',
             'angular-loading-bar'
         ])
+        .constant('cfg', {
+            backendUrl: 'http://localhost:3000'
+        })
         .config(configure);
 
     function configure($stateProvider, $urlRouterProvider) {
