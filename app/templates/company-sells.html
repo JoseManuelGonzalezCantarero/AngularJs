@@ -1,0 +1,14 @@
+<div class="company-sells">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Ventas</h3>
+        </div>
+        <div class="panel-body">
+            <h3>Ventas Actuales: {{ vm.sells.current | currency }}</h3>
+            <h3>Objetivo: {{ vm.sells.target | currency }}</h3>
+            <div class="progress progress-striped active">
+                <div class="progress-bar progress-bar-success" ng-style="{width: vm.sells.percent + '%'}"></div>
+            </div>
+        </div>
+    </div>
+</div>
